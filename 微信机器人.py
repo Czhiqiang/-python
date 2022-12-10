@@ -18,7 +18,8 @@ def out_message(message,name):
 # 注册监听所有消息回调
 @wechat.msg_register(ntchat.MT_ALL)
 def on_recv_text_msg(wechat_instance: ntchat.WeChat, message):
-    if(message["data"]["room_wxid"]==""and message["data"]["from_wxid"]!="wxid_rwzzppa76r2f22"):#判断是不是群发包括不给自己发
+                                                                          #在此添加你的微信号
+    if(message["data"]["room_wxid"]==""and message["data"]["from_wxid"]!="you are vxnumber"):#判断是不是群发包括不给自己发
         name=message["data"]["from_wxid"]#取出要发送信息的微信号
         out_message(message["data"]["msg"],name)#
 # 以下是为了让程序不结束，如果有用于PyQt等有主循环消息的框架，可以去除下面代码
