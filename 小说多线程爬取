@@ -1,17 +1,12 @@
 import requests
 import re
 import threading
-
 # 全局请求头，可根据实际情况调整
 headers = {
-
 }
-
-
 # 获取章节的HTML内容并提取文本，写入文件
 def get_html(url, a, i):
     headers1 = {
-
     }
     html = requests.get(url, headers=headers1).text
     pattern = '<article id="article" class="content"><p>(.*?)</article>'
@@ -23,7 +18,6 @@ def get_html(url, a, i):
         write(text, a, i)
     else:
         print(f"第{a + 1}章第{i}页 未获取到有效内容")
-
 # 将提取的文本写入文件
 def write(fond, a, i):
     file_path = "test.txt"
@@ -31,7 +25,6 @@ def write(fond, a, i):
         file.write(f"第{a + 1}章第{i}页" + '\n')
         file.write(fond + '\n')
     print(f"第{a + 1}章第{i}页完成")
-
 # 获取单章的多页内容
 def get_main(url, a):
     threads = []
